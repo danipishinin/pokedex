@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:pokedex/modules/pokemon_list/infra/datasources/pokemon_datasource.dart';
-import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemonDTO.dart';
+import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';
 
 class PokemonDataSourceImpl implements PokemonDatasource {
   var options = BaseOptions(
-    baseUrl: './pokedex.json',
+    baseUrl:
+        'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json',
     connectTimeout: 5000,
     receiveTimeout: 3000,
   );

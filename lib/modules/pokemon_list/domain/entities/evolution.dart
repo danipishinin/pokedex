@@ -1,9 +1,9 @@
 class Evolution {
-  final String number;
-  final String name;
+  final String? number;
+  final String? name;
 
   Evolution({
-    required this.number,
-    required this.name,
+    this.number,
+    this.name,
   });
 }

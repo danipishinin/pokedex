@@ -1,39 +1,41 @@
-import 'package:pokedex/modules/pokemon_list/infra/dtos/evolutionDTO.dart';
+import 'package:pokedex/modules/pokemon_list/infra/dtos/evolution_dto.dart';
 
 class Pokemon {
-  final int id;
-  final String number;
-  final String name;
-  final String img;
-  final List<String> type;
-  final String height;
-  final String weight;
-  final String candy;
-  final int candyCount;
-  final String egg;
-  final double spawnChance;
-  final int avgSpawns;
-  final String spawnTime;
-  final List<double> multipliers;
-  final List<String> weaknesses;
-  final List<EvolutionDTO> nextEvolution;
+  final int? id;
+  final String? number;
+  final String? name;
+  final String? img;
+  final List<String>? type;
+  final String? height;
+  final String? weight;
+  final String? candy;
+  final int? candyCount;
+  final String? egg;
+  final double? spawnChance;
+  final double? avgSpawns;
+  final String? spawnTime;
+  final List<double>? multipliers;
+  final List<String>? weaknesses;
+  final List<EvolutionDTO>? nextEvolution;
+  final List<EvolutionDTO>? prevEvolution;
 
   Pokemon({
-    required this.id,
-    required this.number,
-    required this.name,
-    required this.img,
-    required this.type,
-    required this.height,
-    required this.weight,
-    required this.candy,
-    required this.candyCount,
-    required this.egg,
-    required this.spawnChance,
-    required this.avgSpawns,
-    required this.spawnTime,
-    required this.multipliers,
-    required this.weaknesses,
-    required this.nextEvolution,
+    this.id,
+    this.number,
+    this.name,
+    this.img,
+    this.type,
+    this.height,
+    this.weight,
+    this.candy,
+    this.candyCount,
+    this.egg,
+    this.spawnChance,
+    this.avgSpawns,
+    this.spawnTime,
+    this.multipliers,
+    this.weaknesses,
+    this.nextEvolution,
+    this.prevEvolution,
   });
 }

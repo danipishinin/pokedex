@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/modules/presenter/ui/pages/pokemon_list.page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,23 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokedex',
       debugShowCheckedModeBanner: false,
-      home: Home(),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Text('sss'),
+      home: PokemonListPage(),
     );
   }
 }
