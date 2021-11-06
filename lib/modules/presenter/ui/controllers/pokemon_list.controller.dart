@@ -1,9 +1,11 @@
+import 'package:pokedex/modules/pokemon_list/domain/usecases/usecase_ui.dart';
 import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';
 import 'package:pokedex/modules/pokemon_list/infra/repositories/pokemon_repository_impl.dart';
 
 class PokemonListController {
   PokemonRepositoryImpl _repository = PokemonRepositoryImpl();
   List<PokemonDTO>? pokemonList;
+  UseCaseUI _useCaseUI = UseCaseUI();
 
   getPokemonList() async {
     try {
@@ -18,5 +20,9 @@ class PokemonListController {
     } finally {
       print('${pokemonList?.length} POKEMONS ENCONTRADOS');
     }
+  }
+
+  getColorCard(String type) {
+    return _useCaseUI.getColorByType(type);
   }
 }

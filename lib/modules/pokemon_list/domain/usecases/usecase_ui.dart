@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CardColors {
+class UseCaseUI {
   Color? getColorByType(String type) {
     final colorSwatch = 400;
     switch (type) {

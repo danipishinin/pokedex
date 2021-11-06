@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/modules/presenter/ui/components/card_pokemon/card_pokemon_component.dart';
 import 'package:pokedex/modules/presenter/ui/controllers/pokemon_list.controller.dart';
 
 class PokemonListPage extends StatefulWidget {
@@ -19,10 +20,16 @@ class _PokemonListPageState extends State<PokemonListPage> {
           itemCount: _controller.pokemonList?.length ?? 0,
           itemBuilder: (context, i) {
             return Container(
-                child: Text('${_controller.pokemonList![i].name} POKEMON'));
+                child: CardPokemon(
+              elements: _controller.pokemonList![i].type,
+              name: _controller.pokemonList![i].name,
+              srcImg: _controller.pokemonList![i].img,
+            ));
           },
         ),
       ),
     );
   }
 }
+
+//Text('${_controller.pokemonList![i].name} POKEMON')

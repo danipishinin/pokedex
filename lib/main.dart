@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'Pokedex',
       debugShowCheckedModeBanner: false,
       home: PokemonListPage(),
+      theme: ThemeData(
+      ),
     );
   }
 }
