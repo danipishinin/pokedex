@@ -6,20 +6,21 @@ class CardPokemon extends StatelessWidget {
   UseCaseUI _useCaseUI = UseCaseUI();
   List? elements;
   String? name;
-  String? srcImg;
+  String? id;
 
   CardPokemon({
     Key? key,
     this.elements,
     this.name,
-    this.srcImg,
+    this.id,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Color? cardColor = _useCaseUI.getColorByType(elements![0]);
     return Container(
-        margin: const EdgeInsets.all(15.0),
+        height: 180,
+        margin: const EdgeInsets.all(6.0),
         padding: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
           color: cardColor,
@@ -31,7 +32,7 @@ class CardPokemon extends StatelessWidget {
           children: [
             Text(
               '$name',
-              style: GoogleFonts.poppins(fontSize: 24, color: Colors.white),
+              style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
             ),
             Row(
               children: [
@@ -43,7 +44,7 @@ class CardPokemon extends StatelessWidget {
                     itemBuilder: (context, i) {
                       return Container(
                         margin: const EdgeInsets.all(3.0),
-                        padding: const EdgeInsets.all(6.0),
+                        padding: const EdgeInsets.all(3.0),
                         decoration: BoxDecoration(
                           color: Colors.white10,
                           borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -65,13 +66,12 @@ class CardPokemon extends StatelessWidget {
                 alignment: AlignmentDirectional.bottomEnd,
                 children: [
                   Image.asset(
-                    'assets/images/pokebola.png',
-                    color: Colors.white10,
-                    height: MediaQuery.of(context).size.height * 0.25,
+                    'assets/images/pokeball10w.png',
+                    height: 100,
                   ),
                   Image.network(
-                    '$srcImg',
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    'https://www.serebii.net/pokemon/art/${id}.png',
+                    height: 80,
                   )
                 ],
               ),

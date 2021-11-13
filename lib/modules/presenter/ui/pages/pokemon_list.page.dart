@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:pokedex/modules/presenter/ui/components/card_pokemon/card_pokemon_component.dart';
 import 'package:pokedex/modules/presenter/ui/controllers/pokemon_list.controller.dart';
 
@@ -16,20 +17,20 @@ class _PokemonListPageState extends State<PokemonListPage> {
     _controller.getPokemonList();
     return Scaffold(
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: _controller.pokemonList?.length ?? 0,
+        child: StaggeredGridView.extentBuilder(
+          maxCrossAxisExtent: MediaQuery.of(context).size.width * 0.5,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 0,
           itemBuilder: (context, i) {
-            return Container(
-                child: CardPokemon(
+            return CardPokemon(
               elements: _controller.pokemonList![i].type,
               name: _controller.pokemonList![i].name,
-              srcImg: _controller.pokemonList![i].img,
-            ));
+              id: _controller.pokemonList![i].number,
+            );
           },
+          staggeredTileBuilder: (i) => StaggeredTile.fit(1),
         ),
       ),
     );
   }
 }
-
-//Text('${_controller.pokemonList![i].name} POKEMON')
