@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/modules/presenter/ui/pages/pokemon_list.page.dart';
+import 'package:pokedex/modules/splashscreen/ui/pages/splashscreen_page.dart';
+
+import 'core/styles/raised_button_style.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,8 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokedex',
       debugShowCheckedModeBanner: false,
-      home: PokemonListPage(),
+      home: SplashScreen(),
       theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(style: raisedButtonStyle),
       ),
     );
   }

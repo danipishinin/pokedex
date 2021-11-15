@@ -19,7 +19,6 @@ class CardPokemon extends StatelessWidget {
   Widget build(BuildContext context) {
     Color? cardColor = _useCaseUI.getColorByType(elements![0]);
     return Container(
-        height: 180,
         margin: const EdgeInsets.all(6.0),
         padding: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
@@ -35,9 +34,10 @@ class CardPokemon extends StatelessWidget {
               style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 100,
+                  width: 80,
                   height: 30,
                   child: ListView.builder(
                     itemCount: elements?.length ?? 0,
@@ -58,24 +58,24 @@ class CardPokemon extends StatelessWidget {
                     },
                   ),
                 ),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Stack(
+                    alignment: AlignmentDirectional.bottomEnd,
+                    children: [
+                      Image.asset(
+                        'assets/images/pokeball10w.png',
+                        height: 100,
+                      ),
+                      Image.network(
+                        'https://www.serebii.net/pokemon/art/${id}.png',
+                        height: 80,
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Stack(
-                alignment: AlignmentDirectional.bottomEnd,
-                children: [
-                  Image.asset(
-                    'assets/images/pokeball10w.png',
-                    height: 100,
-                  ),
-                  Image.network(
-                    'https://www.serebii.net/pokemon/art/${id}.png',
-                    height: 80,
-                  )
-                ],
-              ),
-            )
           ],
         ));
   }
