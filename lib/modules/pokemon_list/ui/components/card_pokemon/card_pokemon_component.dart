@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex/modules/pokemon_list/domain/usecases/usecase_ui.dart';
 
-class CardPokemon extends StatelessWidget {
-  UseCaseUI _useCaseUI = UseCaseUI();
-  List? elements;
-  String? name;
-  String? id;
+class CardPokemon extends StatefulWidget {
+  final List? elements;
+  final String? name;
+  final String? id;
 
   CardPokemon({
     Key? key,
@@ -16,8 +15,15 @@ class CardPokemon extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CardPokemonState createState() => _CardPokemonState();
+}
+
+class _CardPokemonState extends State<CardPokemon> {
+  UseCaseUI _useCaseUI = UseCaseUI();
+
+  @override
   Widget build(BuildContext context) {
-    Color? cardColor = _useCaseUI.getColorByType(elements![0]);
+    Color? cardColor = _useCaseUI.getColorByType(widget.elements![0]);
     return Container(
         margin: const EdgeInsets.all(6.0),
         padding: const EdgeInsets.all(3.0),
@@ -30,7 +36,7 @@ class CardPokemon extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              '$name',
+              '${widget.name}',
               style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
             ),
             Row(
@@ -40,7 +46,7 @@ class CardPokemon extends StatelessWidget {
                   width: 80,
                   height: 30,
                   child: ListView.builder(
-                    itemCount: elements?.length ?? 0,
+                    itemCount: widget.elements?.length ?? 0,
                     itemBuilder: (context, i) {
                       return Container(
                         margin: const EdgeInsets.all(3.0),
@@ -50,7 +56,7 @@ class CardPokemon extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(12)),
                         ),
                         child: Text(
-                          '${elements![i]}',
+                          '${widget.elements![i]}',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white),
                         ),
@@ -68,7 +74,7 @@ class CardPokemon extends StatelessWidget {
                         height: 100,
                       ),
                       Image.network(
-                        'https://www.serebii.net/pokemon/art/${id}.png',
+                        'https://www.serebii.net/pokemon/art/${widget.id}.png',
                         height: 80,
                       )
                     ],

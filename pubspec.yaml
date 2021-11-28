@@ -32,6 +32,8 @@ dependencies:
   google_fonts: ^2.1.0
   flutter_staggered_grid_view: ^0.4.1
   flutter_svg: ^0.23.0+1
+  cached_network_image: ^3.1.0+1
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

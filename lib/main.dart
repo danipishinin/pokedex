@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/modules/pokemon_list/ui/pages/pokemon_list.page.dart';
 import 'package:pokedex/modules/splashscreen/ui/pages/splashscreen_page.dart';
 
 import 'core/styles/raised_button_style.dart';
@@ -14,10 +15,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokedex',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      initialRoute: '/',
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(style: raisedButtonStyle),
       ),
+      routes: {
+        '/': (context) => SplashScreenPage(),
+        '/pokemon-list': (context) => PokemonListPage()
+      },
     );
   }
 }
