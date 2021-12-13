@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex/modules/pokemon_list/domain/usecases/usecase_ui.dart';
+import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';
 
 class CardPokemon extends StatefulWidget {
-  final List? elements;
-  final String? name;
-  final String? id;
+  final PokemonDTO pokemon;
 
   CardPokemon({
     Key? key,
-    this.elements,
-    this.name,
-    this.id,
+    required this.pokemon,
   }) : super(key: key);
 
   @override
@@ -23,7 +20,7 @@ class _CardPokemonState extends State<CardPokemon> {
 
   @override
   Widget build(BuildContext context) {
-    Color? cardColor = _useCaseUI.getColorByType(widget.elements![0]);
+    Color? cardColor = _useCaseUI.getColorByType(widget.pokemon.type![0]);
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/pokemon-details');
@@ -41,7 +38,7 @@ class _CardPokemonState extends State<CardPokemon> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                '${widget.name}',
+                '${widget.pokemon.name}',
                 style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
               ),
               Row(
@@ -51,7 +48,7 @@ class _CardPokemonState extends State<CardPokemon> {
                     width: 80,
                     height: 110,
                     child: ListView.builder(
-                      itemCount: widget.elements?.length ?? 0,
+                      itemCount: widget.pokemon.type?.length ?? 0,
                       itemBuilder: (context, i) {
                         return Container(
                           margin: const EdgeInsets.all(3.0),
@@ -61,7 +58,7 @@ class _CardPokemonState extends State<CardPokemon> {
                             borderRadius: BorderRadius.all(Radius.circular(12)),
                           ),
                           child: Text(
-                            '${widget.elements![i]}',
+                            '${widget.pokemon.type![i]}',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
                           ),
@@ -79,7 +76,7 @@ class _CardPokemonState extends State<CardPokemon> {
                           height: 100,
                         ),
                         Image.network(
-                          'https://www.serebii.net/pokemon/art/${widget.id}.png',
+                          '${widget.pokemon.img}',
                           height: 80,
                         )
                       ],
