@@ -1,5 +1,4 @@
 import 'package:pokedex/core/mappers/mapper.dart';
-import 'package:pokedex/modules/pokemon_list/domain/entities/evolution.dart';
 import 'package:pokedex/modules/pokemon_list/domain/entities/pokemon.dart';
 import 'package:pokedex/modules/pokemon_list/infra/dtos/evolution_dto.dart';
 import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';

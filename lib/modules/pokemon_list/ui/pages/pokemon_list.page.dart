@@ -29,8 +29,9 @@ class _PokemonListPageState extends State<PokemonListPage> {
                 itemCount: _controller.pokemonList?.length ?? 0,
                 itemBuilder: (context, i) {
                   return CardPokemon(
-                    pokemon: _controller.pokemonList![i],
-                  );
+                      pokemon: _controller.pokemonList![i],
+                      color: _controller
+                          .getColorCard(_controller.pokemonList![i].type![0]));
                 },
                 staggeredTileBuilder: (i) => StaggeredTile.fit(1),
               );

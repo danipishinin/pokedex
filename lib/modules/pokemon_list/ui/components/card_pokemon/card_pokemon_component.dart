@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pokedex/modules/pokemon_list/domain/usecases/usecase_ui.dart';
 import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';
 
 class CardPokemon extends StatefulWidget {
   final PokemonDTO pokemon;
+  final Color color;
 
   CardPokemon({
     Key? key,
     required this.pokemon,
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -16,21 +17,19 @@ class CardPokemon extends StatefulWidget {
 }
 
 class _CardPokemonState extends State<CardPokemon> {
-  UseCaseUI _useCaseUI = UseCaseUI();
-
   @override
   Widget build(BuildContext context) {
-    Color? cardColor = _useCaseUI.getColorByType(widget.pokemon.type![0]);
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/pokemon-details');
+        Navigator.pushNamed(context, '/pokemon-details',
+            arguments: widget.pokemon);
       },
       borderRadius: BorderRadius.all(Radius.circular(12)),
       child: Container(
           margin: const EdgeInsets.all(6.0),
           padding: const EdgeInsets.all(3.0),
           decoration: BoxDecoration(
-            color: cardColor,
+            color: widget.color,
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           child: Column(
