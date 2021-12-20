@@ -15,7 +15,7 @@
 </p>
 
 <h1 align="center"> 
-	🚧  Pokedex ✨ Concluído 🚀 🚧
+	🚧  Pokedex ✨ Em andamento 🚀 🚧
 </h1>
 
 <p align="center">
