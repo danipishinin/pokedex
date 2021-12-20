@@ -7,7 +7,7 @@
     <img alt="Siga no Twitter" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2danipishinin%2blog-origamid#readme">
   </a>
     
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <img alt="License" src="https://img.shields.io/badge/license-no license-brightgreen">
 
   <a href="https://www.instagram.com/danipishinin/">
     <img alt="Feito pela Daniele Pishinin" src="https://img.shields.io/badge/feito%20por-Daniele Pishinin-%237519C1">
