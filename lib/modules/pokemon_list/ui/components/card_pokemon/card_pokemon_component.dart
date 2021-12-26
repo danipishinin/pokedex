@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex/modules/pokemon_list/infra/dtos/pokemon_dto.dart';
@@ -16,9 +18,27 @@ class CardPokemon extends StatefulWidget {
   _CardPokemonState createState() => _CardPokemonState();
 }
 
-class _CardPokemonState extends State<CardPokemon> {
+class _CardPokemonState extends State<CardPokemon>
+    with TickerProviderStateMixin {
+  late final AnimationController _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animation = AnimationController(
+      duration: new Duration(milliseconds: 3000),
+      vsync: this,
+    );
+    _animation.repeat();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      setState(() {
+        _animation.stop();
+      });
+    });
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/pokemon-details',
@@ -70,14 +90,23 @@ class _CardPokemonState extends State<CardPokemon> {
                     child: Stack(
                       alignment: AlignmentDirectional.bottomEnd,
                       children: [
-                        Image.asset(
-                          'assets/images/pokeball10w.png',
-                          height: 100,
-                        ),
+                        AnimatedBuilder(
+                            animation: _animation,
+                            child: Image.asset(
+                              'assets/images/pokeball10w.png',
+                              height: 100,
+                              width: 100,
+                            ),
+                            builder: (BuildContext context, Widget? child) {
+                              return Transform.rotate(
+                                angle: _animation.value * 2 * math.pi,
+                                child: child,
+                              );
+                            }),
                         Image.network(
                           '${widget.pokemon.img}',
                           height: 80,
-                        )
+                        ),
                       ],
                     ),
                   )
